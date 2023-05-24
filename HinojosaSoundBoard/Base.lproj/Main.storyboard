@@ -77,6 +77,18 @@
                                     <action selector="reproducirTapped:" destination="Akp-bF-hgv" eventType="touchUpInside" id="Kgr-bm-yFQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC9-eL-Dhg">
+                                <rect key="frame" x="159" y="387" width="97" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="tintColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Agregar">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="agregarTapped:" destination="Akp-bF-hgv" eventType="touchUpInside" id="ioj-it-5JP"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tg-09-cRd">
                                 <rect key="frame" x="20" y="271" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,18 +103,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC9-eL-Dhg">
-                                <rect key="frame" x="159" y="387" width="97" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFd-H8-aKg">
+                                <rect key="frame" x="156" y="242" width="103" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="tintColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Agregar">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="agregarTapped:" destination="Akp-bF-hgv" eventType="touchUpInside" id="ioj-it-5JP"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="P2g-kA-3dx">
+                                <rect key="frame" x="148" y="479" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Ha-Gw-TII"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -110,9 +121,11 @@
                     <navigationItem key="navigationItem" id="29M-DK-mjt"/>
                     <connections>
                         <outlet property="agregarButton" destination="gC9-eL-Dhg" id="gi8-d7-yPr"/>
+                        <outlet property="durationLabel" destination="eFd-H8-aKg" id="86I-g5-ScY"/>
                         <outlet property="grabarButton" destination="usr-P8-uYs" id="IP1-4a-2HB"/>
                         <outlet property="nombreTextField" destination="Ql4-kw-89a" id="CnJ-Gv-N75"/>
                         <outlet property="reproducirButton" destination="F20-7Z-SyY" id="s2c-5T-nyd"/>
+                        <outlet property="volumenCambiado" destination="P2g-kA-3dx" id="0tl-IH-b5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaj-2z-XbV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

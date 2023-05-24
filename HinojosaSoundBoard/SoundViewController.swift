@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 
+
 class SoundViewController: UIViewController {
 
     @IBOutlet weak var grabarButton: UIButton!
@@ -18,26 +19,40 @@ class SoundViewController: UIViewController {
     var grabarAudio:AVAudioRecorder?
     var reproducirAudio:AVAudioPlayer?
     var audioURL:URL?
+    var recordingStartTime: Date?
+    var timer: Timer?
+    var recordingDuration:String = ""
+
+
+    @IBOutlet weak var volumenCambiado: UISlider!
+    @IBOutlet weak var durationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurarGrabacion()
         reproducirButton.isEnabled = false
         agregarButton.isEnabled = false
+        volumenCambiado.addTarget(self, action: #selector(volumenCambiados(_:)), for: .valueChanged)
         // Do any additional setup after loading the view.
     }
     
+    @objc func volumenCambiados(_ sender: UISlider) {
+        reproducirAudio?.volume = sender.value
+    }
+
+
     
     @IBAction func grabarTapped(_ sender: Any) {
         if grabarAudio!.isRecording{
            grabarAudio?.stop()
-          
+          stopRecording()
+            
            grabarButton.setTitle("GRABAR", for: .normal)
             reproducirButton.isEnabled = true
             agregarButton.isEnabled = true
         }else{
            grabarAudio?.record()
-
+            startRecording()
 
            grabarButton.setTitle("DETENER", for: .normal)
             reproducirButton.isEnabled = false
@@ -48,6 +63,7 @@ class SoundViewController: UIViewController {
     @IBAction func reproducirTapped(_ sender: Any) {
         do{
            try reproducirAudio = AVAudioPlayer(contentsOf: audioURL!)
+            reproducirAudio?.volume = volumenCambiado.value
            reproducirAudio!.play()
            print("Reproduciendo")
         }catch{}
@@ -58,8 +74,51 @@ class SoundViewController: UIViewController {
         let grabacion = Grabacion(context: context)
         grabacion.nombre = nombreTextField.text
         grabacion.audio = NSData(contentsOf:audioURL!)! as Data
+        grabacion.duracion = durationLabel.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController!.popViewController(animated: true)
+    }
+    
+    func startRecording() {
+        // Tu código para comenzar la grabación
+        
+        // Establecer el tiempo de inicio de la grabación
+        recordingStartTime = Date()
+        
+        // Configurar el temporizador para actualizar el UILabel
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateDurationLabel), userInfo: nil, repeats: true)
+    }
+    
+    func formatDuration(_ duration: TimeInterval) -> String {
+        let minutes = Int((duration / 60).truncatingRemainder(dividingBy: 60))
+        let seconds = Int(duration.truncatingRemainder(dividingBy: 60))
+
+        let formattedDuration = String(format: "%02d:%02d", minutes, seconds)
+        return formattedDuration
+    }
+
+    
+    @objc func updateDurationLabel() {
+        guard let startTime = recordingStartTime else {
+            return
+        }
+        
+        let currentTime = Date()
+        let duration = currentTime.timeIntervalSince(startTime)
+        
+        // Formatear la duración en el formato deseado (por ejemplo, HH:mm:ss)
+        let durationText = formatDuration(duration)
+        recordingDuration = durationText
+        
+        // Actualizar el UILabel con la duración
+        durationLabel.text = durationText
+    }
+    func stopRecording() {
+        // Tu código para detener la grabación
+        
+        // Detener el temporizador
+        timer?.invalidate()
+        timer = nil
     }
     
     func configurarGrabacion(){

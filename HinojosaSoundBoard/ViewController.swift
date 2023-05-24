@@ -16,6 +16,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let grabacion = grabaciones[indexPath.row]
+        
+        let datoView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        datoView.backgroundColor = UIColor.red
+        
+        let datoLabel = UILabel(frame: datoView.bounds)
+        datoLabel.text = grabacion.duracion
+        datoLabel.textColor = UIColor.white
+        datoLabel.textAlignment = .center
+        
+        datoView.addSubview(datoLabel)
+        cell.accessoryView = datoView
+        
         cell.textLabel?.text = grabacion.nombre
         return cell
     }
