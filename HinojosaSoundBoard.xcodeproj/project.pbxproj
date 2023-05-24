@@ -14,6 +14,7 @@
 		E81646BB2A1E681000EE147D /* HinojosaSoundBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E81646B92A1E681000EE147D /* HinojosaSoundBoard.xcdatamodeld */; };
 		E81646BD2A1E681200EE147D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E81646BC2A1E681200EE147D /* Assets.xcassets */; };
 		E81646C02A1E681200EE147D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81646BE2A1E681200EE147D /* LaunchScreen.storyboard */; };
+		E81646CA2A1E724500EE147D /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81646C92A1E724500EE147D /* SoundViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E81646BC2A1E681200EE147D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E81646BF2A1E681200EE147D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E81646C12A1E681200EE147D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E81646C92A1E724500EE147D /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				E81646B22A1E681000EE147D /* SceneDelegate.swift */,
 				E81646B42A1E681000EE147D /* ViewController.swift */,
 				E81646B62A1E681000EE147D /* Main.storyboard */,
+				E81646C92A1E724500EE147D /* SoundViewController.swift */,
 				E81646BC2A1E681200EE147D /* Assets.xcassets */,
 				E81646BE2A1E681200EE147D /* LaunchScreen.storyboard */,
 				E81646C12A1E681200EE147D /* Info.plist */,
@@ -145,6 +148,7 @@
 				E81646B12A1E681000EE147D /* AppDelegate.swift in Sources */,
 				E81646B32A1E681000EE147D /* SceneDelegate.swift in Sources */,
 				E81646BB2A1E681000EE147D /* HinojosaSoundBoard.xcdatamodeld in Sources */,
+				E81646CA2A1E724500EE147D /* SoundViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
